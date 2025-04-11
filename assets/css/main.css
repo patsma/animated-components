@@ -1,7 +1,10 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @source "../../../content/**/*";
 
 @theme {
   --font-sans: 'Public Sans', sans-serif;
+}
+body {
+  min-height: 300vh;
 }

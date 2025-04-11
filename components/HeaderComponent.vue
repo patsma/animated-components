@@ -1,73 +1,51 @@
 <template>
   <!-- Fixed header with blur effect and semi-transparent background -->
   <div
-    class="fixed top-0 z-50 w-full border-b px-6 py-4 backdrop-blur-sm transition-colors duration-200"
-    :class="[
-      currentTheme === 'dark'
-        ? 'border-neutral-800 bg-neutral-900/70'
-        : 'border-neutral-200 bg-white/70'
-    ]"
+    class="theme-bg theme-border fixed top-0 z-50 w-full border-b px-6 py-4 backdrop-blur-sm transition-colors duration-200"
   >
     <div class="mx-auto flex max-w-7xl items-center justify-between">
       <!-- Left: Name and role -->
       <div class="flex flex-col">
-        <h1
-          class="text-lg font-medium"
-          :class="currentTheme === 'dark' ? 'text-neutral-50' : 'text-neutral-900'"
-        >
-          Morten Christensen
-        </h1>
-        <span
-          class="text-sm"
-          :class="currentTheme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'"
-        >
-          UX/UI designer
-        </span>
+        <h1 class="theme-text-primary text-lg font-medium">Morten Christensen</h1>
+        <span class="theme-text-muted text-sm"> UX/UI designer </span>
       </div>
 
       <!-- Center: Navigation -->
       <nav class="flex items-center gap-8">
+        <!-- First two nav items -->
         <NuxtLink
-          v-for="item in ['Work', 'About', 'Lab', 'Contact']"
+          v-for="item in ['Work', 'About']"
           :key="item"
           :to="'/' + item.toLowerCase()"
-          class="transition-colors duration-200"
-          :class="[
-            currentTheme === 'dark'
-              ? 'text-neutral-400 hover:text-neutral-50'
-              : 'text-neutral-600 hover:text-neutral-900'
-          ]"
+          class="theme-text-nav transition-colors duration-200"
         >
           {{ item }}
         </NuxtLink>
 
         <!-- Theme toggle button -->
         <button
-          class="rounded-full p-2 transition-colors duration-200"
-          :class="[
-            currentTheme === 'dark'
-              ? 'text-neutral-400 hover:bg-neutral-800 hover:text-neutral-50'
-              : 'text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900'
-          ]"
+          class="theme-text-nav theme-hover-bg rounded-full p-2 transition-colors duration-200"
           aria-label="Toggle color mode"
           @click="toggleTheme"
         >
           <Icon :name="currentTheme === 'dark' ? 'ph:sun-bold' : 'ph:moon-bold'" class="h-5 w-5" />
         </button>
+
+        <!-- Last two nav items -->
+        <NuxtLink
+          v-for="item in ['Lab', 'Contact']"
+          :key="item"
+          :to="'/' + item.toLowerCase()"
+          class="theme-text-nav transition-colors duration-200"
+        >
+          {{ item }}
+        </NuxtLink>
       </nav>
 
       <!-- Right: Location and time -->
       <div class="text-right">
-        <div
-          class="text-sm"
-          :class="currentTheme === 'dark' ? 'text-neutral-400' : 'text-neutral-500'"
-        >
-          Tokyo, JP
-        </div>
-        <div
-          class="text-xs"
-          :class="currentTheme === 'dark' ? 'text-neutral-500' : 'text-neutral-400'"
-        >
+        <div class="theme-text-muted text-sm">Tokyo, JP</div>
+        <div class="theme-text-subtle text-xs">
           {{ localTime }}
         </div>
       </div>

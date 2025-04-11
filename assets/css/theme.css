@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme static {
   /* Primary colors */
@@ -45,22 +45,91 @@
   --theme-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
 }
 
-/* Base styles */
+/* Base theme variables */
 :root {
   color-scheme: light;
-  --theme-bg: var(--color-neutral-50);
-  --theme-text: var(--color-neutral-900);
-  --theme-muted: var(--color-neutral-500);
-  --theme-primary: var(--color-primary-600);
-  --theme-secondary: var(--color-secondary-600);
+
+  /* Background colors */
+  --theme-bg-primary: var(--color-neutral-50);
+  --theme-bg-secondary: var(--color-neutral-100);
+  --theme-bg-overlay: rgba(255, 255, 255, 0.7);
+
+  /* Text colors */
+  --theme-text-primary: var(--color-neutral-900);
+  --theme-text-secondary: var(--color-neutral-700);
+  --theme-text-muted: var(--color-neutral-500);
+  --theme-text-subtle: var(--color-neutral-400);
+
+  /* Border colors */
+  --theme-border-primary: var(--color-neutral-200);
+  --theme-border-secondary: var(--color-neutral-300);
+
+  /* Interactive colors */
+  --theme-hover-bg: var(--color-neutral-100);
+  --theme-hover-text: var(--color-neutral-900);
+  --theme-active-bg: var(--color-neutral-200);
+  --theme-active-text: var(--color-neutral-900);
 }
 
 /* Dark mode overrides */
 .dark {
   color-scheme: dark;
-  --theme-bg: var(--color-neutral-900);
-  --theme-text: var(--color-neutral-50);
-  --theme-muted: var(--color-neutral-400);
-  --theme-primary: var(--color-primary-400);
-  --theme-secondary: var(--color-secondary-400);
-} 
+
+  /* Background colors */
+  --theme-bg-primary: var(--color-neutral-900);
+  --theme-bg-secondary: var(--color-neutral-800);
+  --theme-bg-overlay: rgba(0, 0, 0, 0.7);
+
+  /* Text colors */
+  --theme-text-primary: var(--color-neutral-50);
+  --theme-text-secondary: var(--color-neutral-200);
+  --theme-text-muted: var(--color-neutral-400);
+  --theme-text-subtle: var(--color-neutral-500);
+
+  /* Border colors */
+  --theme-border-primary: var(--color-neutral-800);
+  --theme-border-secondary: var(--color-neutral-700);
+
+  /* Interactive colors */
+  --theme-hover-bg: var(--color-neutral-800);
+  --theme-hover-text: var(--color-neutral-50);
+  --theme-active-bg: var(--color-neutral-700);
+  --theme-active-text: var(--color-neutral-50);
+}
+
+/* Utility classes */
+.theme-bg {
+  @apply bg-[var(--theme-bg-overlay)];
+}
+
+.theme-border {
+  @apply border-[var(--theme-border-primary)];
+}
+
+.theme-text-primary {
+  @apply text-[var(--theme-text-primary)];
+}
+
+.theme-text-secondary {
+  @apply text-[var(--theme-text-secondary)];
+}
+
+.theme-text-muted {
+  @apply text-[var(--theme-text-muted)];
+}
+
+.theme-text-subtle {
+  @apply text-[var(--theme-text-subtle)];
+}
+
+.theme-text-nav {
+  @apply text-[var(--theme-text-muted)] hover:text-[var(--theme-hover-text)];
+}
+
+.theme-hover-bg {
+  @apply hover:bg-[var(--theme-hover-bg)];
+}
+
+.theme-active-bg {
+  @apply active:bg-[var(--theme-active-bg)];
+}
